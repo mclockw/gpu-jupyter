@@ -14,8 +14,8 @@ RUN set -ex \
  && pip install --no-cache-dir $buildDeps
 
 # git
-conda install -c conda-forge jupyterlab-git
-jupyter lab build
+RUN conda install -c conda-forge jupyterlab-git
+RUN jupyter lab build
 
 # Install various extensions
 RUN fix-permissions $CONDA_DIR
