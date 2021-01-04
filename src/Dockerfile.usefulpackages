@@ -13,6 +13,10 @@ RUN set -ex \
  && apt-get -y install htop apt-utils graphviz libgraphviz-dev openssh-client \
  && pip install --no-cache-dir $buildDeps
 
+# git
+conda install -c conda-forge jupyterlab-git
+jupyter lab build
+
 # Install various extensions
 RUN fix-permissions $CONDA_DIR
 RUN jupyter labextension install @jupyterlab/github
