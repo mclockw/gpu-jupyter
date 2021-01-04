@@ -14,8 +14,6 @@ RUN set -ex \
  && pip install --no-cache-dir $buildDeps
 
 # git
-RUN conda install -c conda-forge jupyterlab-git
-RUN jupyter lab build
 
 # Install various extensions
 RUN fix-permissions $CONDA_DIR
@@ -32,6 +30,10 @@ RUN pip install --no-cache-dir jupyter_contrib_nbextensions \
  jupyter_nbextensions_configurator rise && \
   jupyter nbextension enable codefolding/main
 RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
+
+// mc: git
+RUN jupyter labextension install jupyterlab-git
+
 
 RUN fix-permissions /home/$NB_USER
 
