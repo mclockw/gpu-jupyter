@@ -31,7 +31,7 @@ RUN pip install --no-cache-dir jupyter_contrib_nbextensions \
   jupyter nbextension enable codefolding/main
 RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 
-// mc: git
+# mc: git
 RUN jupyter labextension install jupyterlab-git
 
 
