@@ -32,7 +32,7 @@ RUN pip install --no-cache-dir jupyter_contrib_nbextensions \
 RUN jupyter labextension install @ijmbarr/jupyterlab_spellchecker
 
 # mc: git
-RUN jupyter labextension install jupyterlab-git
+RUN jupyter labextension install @jupyterlab/git
 
 
 RUN fix-permissions /home/$NB_USER
