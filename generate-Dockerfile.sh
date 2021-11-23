@@ -4,7 +4,7 @@ cd $(cd -P -- "$(dirname -- "$0")" && pwd -P)
 # Set the path of the generated Dockerfile
 export DOCKERFILE=".build/Dockerfile"
 export STACKS_DIR=".build/docker-stacks"
-# please test the build of the commit in https://github.com/jupyter/docker-stacks/commits/master in advance
+# please test the build of the commit in https://github.com.cnpmjs.org/jupyter/docker-stacks/commits/master in advance
 export HEAD_COMMIT="04f7f60d34a674a2964d96a6cb97c57a7870a828"
 
 while [[ "$#" -gt 0 ]]; do case $1 in
@@ -14,13 +14,13 @@ while [[ "$#" -gt 0 ]]; do case $1 in
   -s|--slim) no_datascience_notebook=1 && no_useful_packages=1;;
   *) echo "Unknown parameter passed: $1" &&
     echo "Usage: $0 -c [sha-commit] # set the head commit of the docker-stacks submodule
-    (https://github.com/jupyter/docker-stacks/commits/master). default: $HEAD_COMMIT."; exit 1;;
+    (https://github.com.cnpmjs.org/jupyter/docker-stacks/commits/master). default: $HEAD_COMMIT."; exit 1;;
 esac; shift; done
 
 
 # Clone if docker-stacks doesn't exist, and set to the given commit or the default commit
 ls $STACKS_DIR/README.md  > /dev/null 2>&1  || (echo "Docker-stacks was not found, cloning repository" \
- && git clone https://github.com/jupyter/docker-stacks.git $STACKS_DIR)
+ && git clone https://github.com.cnpmjs.org/jupyter/docker-stacks.git $STACKS_DIR)
 echo "Set docker-stacks to commit '$HEAD_COMMIT'."
 if [[ "$HEAD_COMMIT" == "latest" ]]; then
   echo "WARNING, the latest commit of docker-stacks is used. This may result in version conflicts"
@@ -31,7 +31,7 @@ else
   echo "$HEAD"
   if [[ "$GOT_HEAD" == "false" ]]; then
     echo "Error: The given sha-commit is invalid."
-    echo "Usage: $0 -c [sha-commit] # set the head commit of the docker-stacks submodule (https://github.com/jupyter/docker-stacks/commits/master)."
+    echo "Usage: $0 -c [sha-commit] # set the head commit of the docker-stacks submodule (https://github.com.cnpmjs.org/jupyter/docker-stacks/commits/master)."
     echo "Exiting"
     exit 2
   else
