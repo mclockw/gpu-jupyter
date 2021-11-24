@@ -9,9 +9,20 @@ RUN pip install --upgrade pip && \
 RUN pip --version
 
 # Install PyTorch with dependencies
-RUN conda install --quiet --yes \
-    pyyaml mkl mkl-include setuptools cmake cffi typing
+# RUN conda install --yes pyyaml
 
+# RUN conda install --yes mkl
+
+# RUN conda install --yes mkl-include
+
+# RUN conda install --yes setuptools
+
+# RUN conda install --yes cmake
+
+# RUN conda install --yes cffi
+
+# RUN conda install --yes typing
+          
 # Check compatibility here: https://pytorch.org/get-started/locally/
 RUN conda install --quiet --yes \
      pytorch \ 
